@@ -47,7 +47,7 @@ const HomeScreen = () => {
                         placeholderTextColor="#94a3b8"
                     />
                     <TouchableOpacity style={styles.headerIcon}>
-                        <Search size={20} color="#1E293B" />
+                        <Search size={20} color="#0F1729" />
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.headerIcon}>
                         <View style={styles.notifWrapper}>
@@ -61,14 +61,14 @@ const HomeScreen = () => {
                 <TouchableOpacity style={styles.quickFit} activeOpacity={0.8}>
                     <View style={styles.quickFitLeft}>
                         <View style={styles.quickFitIcon}>
-                            <Zap size={16} color="#2869BD" fill="#2869BD" />
+                            <Zap size={16} color="white" />
                         </View>
                         <View>
                             <Text style={styles.quickFitTitle}>Quick Fit</Text>
                             <Text style={styles.quickFitSub}>Generate an outfit instantly</Text>
                         </View>
                     </View>
-                    <ChevronRight size={18} color="#94a3b8" />
+                    <ChevronRight size={24} strokeWidth={2} color="#000" />
                 </TouchableOpacity>
 
                 {/* Today's Pick Banner */}
@@ -170,54 +170,51 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 16,
-        paddingVertical: 12,
-        gap: 8,
+        paddingHorizontal: 20,
+        paddingBottom: 30,
+        gap: 11,
     },
     avatar: {
-        width: 36,
-        height: 36,
-        borderRadius: 18,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
     },
     searchInput: {
         flex: 1,
         height: 36,
-        backgroundColor: '#F3F4F6',
         borderRadius: 8,
-        paddingHorizontal: 12,
-        fontSize: 13,
+        fontSize: 14,
         fontFamily: 'InterRegular',
-        color: '#1E293B',
-        borderWidth: 1,
-        borderColor: '#E2E8F0',
+        fontWeight: '400',
+        color: '#65758B',
     },
     headerIcon: {
-        width: 36,
-        height: 36,
+        width: 40,
+        height: 40,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#F3F4F6',
+        borderRadius: 50,
     },
     notifWrapper: {
         position: 'relative',
     },
     notifDot: {
         position: 'absolute',
-        top: -2,
-        right: -2,
+        top: -1,
+        right: 1,
         width: 8,
         height: 8,
         borderRadius: 4,
-        backgroundColor: '#EF4444',
-        borderWidth: 1.5,
-        borderColor: '#fff',
+        backgroundColor: '#EF4343',
     },
 
     // Quick Fit
     quickFit: {
-        marginHorizontal: 16,
+        marginHorizontal: 20,
         marginBottom: 16,
-        backgroundColor: '#EFF6FF',
-        borderRadius: 12,
+        backgroundColor: '#F3F4F6',
+        borderRadius: 16,
         paddingHorizontal: 16,
         paddingVertical: 14,
         flexDirection: 'row',
@@ -232,22 +229,23 @@ const styles = StyleSheet.create({
     quickFitIcon: {
         width: 36,
         height: 36,
-        borderRadius: 10,
-        backgroundColor: '#DBEAFE',
+        borderRadius: 8,
+        backgroundColor: '#2869BD',
         justifyContent: 'center',
         alignItems: 'center',
     },
     quickFitTitle: {
-        fontSize: 14,
-        fontFamily: 'InterSemiBold',
-        fontWeight: '600',
+        fontSize: 16,
+        fontFamily: 'InterMedium',
+        fontWeight: '500',
         color: '#1E293B',
     },
     quickFitSub: {
         fontSize: 12,
         fontFamily: 'InterRegular',
-        color: '#64748B',
+        color: '#65758B',
         marginTop: 2,
+        fontWeight: '400',
     },
 
     // Today's Pick
