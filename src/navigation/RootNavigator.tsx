@@ -4,9 +4,11 @@ import OnBoardingScreen from '../Screens/Onbording/OnBordingScreen'
 import SignupScreen from '../Screens/signup/SignupScreen'
 import SignInScreen from '../Screens/signin/SignInScreen'
 import BottomBar from './BottomBar'
+import ProfileEditScreen from '../Screens/profile/Profileeditscreen'
 
 
 const Stack = createNativeStackNavigator()
+
 
 export default function App() {
     return (
@@ -14,6 +16,7 @@ export default function App() {
             <Stack.Screen name="onboarding" component={OnBoardingScreen} />
             <Stack.Screen name="signup" component={SignupScreen} />
             <Stack.Screen name="signin" component={SignInScreen} />
+            <Stack.Screen name="profileedit" component={ProfileEditScreen} />
             <Stack.Screen name="bottombar" component={BottomBar} />
         </Stack.Navigator>
     )

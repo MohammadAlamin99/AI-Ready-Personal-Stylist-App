@@ -10,6 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChevronRight, PenLine, Shirt } from 'lucide-react-native';
 import { styles } from './style';
+import { useNavigation } from '@react-navigation/native';
 
 const stats = [
     { label: 'Items', value: '128' },
@@ -31,6 +32,7 @@ const favoriteLooks = [
 ];
 
 const ProfileScreen = () => {
+    const navigation = useNavigation<any>();
     return (
         <SafeAreaView style={styles.safeArea}>
             <StatusBar barStyle="dark-content" backgroundColor="#fff" />
@@ -51,7 +53,9 @@ const ProfileScreen = () => {
                             <Text style={styles.profileSub}>Inspiration for today</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('profileedit')}
+                        style={styles.editBtn} activeOpacity={0.7}>
                         <PenLine size={18} color="#1E293B" />
                     </TouchableOpacity>
                 </View>
