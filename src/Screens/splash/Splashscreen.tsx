@@ -7,7 +7,6 @@ import {
     Dimensions,
     Image,
     ImageBackground,
-    ActivityIndicator,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -41,12 +40,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
                 {/* Tagline */}
                 <Text style={styles.tagline}>Your style, simplified.</Text>
             </View>
-
-            {/* Loading Indicator at Bottom */}
-            <View style={styles.loadingContainer}>
-                <ActivityIndicator size="small" color="#1A2F7A" />
-                <Text style={styles.loadingText}>Loading...</Text>
-            </View>
         </ImageBackground>
     );
 };
@@ -69,8 +62,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     logo: {
-        width: 250,
-        height: 90,
+        width: 290,
+        height: 105,
         resizeMode: 'contain',
         marginBottom: 16,
     },
@@ -79,16 +72,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: '500',
         textAlign: 'center',
-        fontFamily: 'InterMedium',
-    },
-    loadingContainer: {
-        alignItems: 'center',
-        paddingBottom: 60,
-    },
-    loadingText: {
-        marginTop: 8,
-        fontSize: 13,
-        color: '#1A2F7A',
         fontFamily: 'InterMedium',
     },
 });
