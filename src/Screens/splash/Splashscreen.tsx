@@ -6,6 +6,8 @@ import {
     StatusBar,
     Dimensions,
     Image,
+    ImageBackground,
+    ActivityIndicator,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -18,47 +20,76 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onFinish?.();
-        }, 2000);
+        }, 3000);
         return () => clearTimeout(timer);
     }, [onFinish]);
 
     return (
-        <View style={styles.container}>
-            <StatusBar barStyle="light-content" backgroundColor="#1A73E8" />
+        <ImageBackground
+            source={require('../../../assets/images/bg-onboarding.png')}
+            style={styles.background}
+            resizeMode="cover"
+        >
+            <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
 
             {/* Logo */}
-            <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
-            {/* Tagline */}
-            <Text style={styles.tagline}>Your stylist in your pocket.</Text>
-        </View>
+            <View style={styles.centerContent}>
+                <Image
+                    source={require('../../../assets/images/logo2.png')}
+                    style={styles.logo}
+                />
+                {/* Tagline */}
+                <Text style={styles.tagline}>Your style, simplified.</Text>
+            </View>
+
+            {/* Loading Indicator at Bottom */}
+            <View style={styles.loadingContainer}>
+                <ActivityIndicator size="small" color="#1A2F7A" />
+                <Text style={styles.loadingText}>Loading...</Text>
+            </View>
+        </ImageBackground>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    background: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        width,
+        height,
         position: 'absolute',
         top: 0,
         left: 0,
-        width,
-        height,
         zIndex: 999,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    centerContent: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    logo: {
+        width: 250,
+        height: 90,
+        resizeMode: 'contain',
+        marginBottom: 16,
     },
     tagline: {
         fontSize: 18,
-        color: '#000000',
+        color: '#fff',
         fontWeight: '500',
         textAlign: 'center',
         fontFamily: 'InterMedium',
-        width: '100%'
     },
-    logo: {
-        width: 150,
-        height: 150,
-        resizeMode: 'contain',
+    loadingContainer: {
+        alignItems: 'center',
+        paddingBottom: 60,
+    },
+    loadingText: {
+        marginTop: 8,
+        fontSize: 13,
+        color: '#1A2F7A',
+        fontFamily: 'InterMedium',
     },
 });
 
